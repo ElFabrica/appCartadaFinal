@@ -1,6 +1,6 @@
  import { StyleSheet } from "react-native";
 
 
-export default function Admin(){
+export  function Admin(){
 
 }
