@@ -8,11 +8,11 @@ export function Home( {navigation}: StackRoutesProps<"home">){
     return(
         <View>
             <View>
-                <Image source={require("")} />
+                <Image source={require("/")} />
             </View>
             <Text>Seja bem vindo a Cartada Final</Text>
                     <LottieView
-          source={require('')}
+          source={require('/')}
           autoPlay
           loop
         />

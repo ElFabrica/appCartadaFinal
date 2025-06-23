@@ -2,7 +2,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const ITEMS_STORGE_KEY = "@AppCartadaFinal:users"
 
-export type User ={
+export type ItemsUser ={
     id: string,
     name: string,
     phone: string,
@@ -10,7 +10,7 @@ export type User ={
 }
 
 //Faz uma busca de todos os itens dessa tabela
-async function get(): Promise<User[]> {
+async function get(): Promise<ItemsUser[]> {
     try {
         const storge = await AsyncStorage.getItem(ITEMS_STORGE_KEY)
 
@@ -21,7 +21,7 @@ async function get(): Promise<User[]> {
     }
 }
 //Salva os itens dentro do banco de dados do dispositivo
-async function save(items: User[]): Promise<void> {
+async function save(items: ItemsUser[]): Promise<void> {
     try {
         await AsyncStorage.setItem(ITEMS_STORGE_KEY, JSON.stringify(items))
     } catch (error) {
@@ -29,7 +29,7 @@ async function save(items: User[]): Promise<void> {
     }
 }
 //Adiciona um item no banco de dados do dispositivo
-async function add(newItem: User): Promise<User[]> {
+async function add(newItem: ItemsUser): Promise<ItemsUser[]> {
     const items = await get()
     const updatedItems = [...items, newItem]
     await save(updatedItems)
@@ -55,7 +55,7 @@ async function clear(): Promise<void> {
 
 
 
-export const itemsStorge = {
+export const itemsUser = {
     get,
     save,
     add,

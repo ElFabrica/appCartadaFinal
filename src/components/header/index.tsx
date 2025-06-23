@@ -1,5 +1,5 @@
 import { View, Image, ImageProps } from "react-native";
-import {styles} from "./style.js"
+import {styles} from "./style"
 
 type Props =ImageProps & {
         src: string
