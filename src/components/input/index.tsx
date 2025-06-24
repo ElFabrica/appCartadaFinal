@@ -1,4 +1,5 @@
-import { TextInput, TextInputProps } from "react-native";
+import { useState } from "react";
+import { TextInput, TextInputProps, View } from "react-native";
 import {styles} from "./style"
 
 type Props =TextInputProps & {
@@ -6,10 +7,20 @@ type Props =TextInputProps & {
 }
 
 export function Input({place, ...rest}: Props) {
+      const [isFocused, setIsFocused] = useState(false);
 
     return(
-        <TextInput style={styles.input} placeholder={place} >
+            <View style={styles.wrapper}>
+        <TextInput style={[
+            styles.input,
+            isFocused && 
+            styles.inputFocused
+            ]}
+        placeholder={place} 
+        onFocus={() => setIsFocused(true)}
+        onBlur={() => setIsFocused(false)} >
         </TextInput>
+        </View>
     )
     
 }
